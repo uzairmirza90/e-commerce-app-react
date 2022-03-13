@@ -73,10 +73,14 @@ function Checkout() {
         <h2>Total Price: &nbsp; ${Math.round(totalPrice)}</h2>
 
         {/*       Checkout Stripe Payment Button        */}
+        {totalPrice > 0 
+        ? 
         <StripeCheckout 
-          stripeKey="pk_test_51KcdwcLGzlwg0551cXUgVMhQCBD4XcEwzy1QajT7yeEinjli0i1mzCE6x9VvSxkFx1wINtcbjFdBrDiT5Ct1RRiq00NJigiTYs"
-          token={handleToken} amount={product.price * 100} name={product.name} billingAddress shippingAddress
-        />
+        stripeKey="pk_test_51KcdwcLGzlwg0551cXUgVMhQCBD4XcEwzy1QajT7yeEinjli0i1mzCE6x9VvSxkFx1wINtcbjFdBrDiT5Ct1RRiq00NJigiTYs"
+        token={handleToken} amount={product.price * 100} name={product.name} billingAddress shippingAddress
+      /> 
+    : ''}
+        
       </div>
 
       {/*       Divider       */}
